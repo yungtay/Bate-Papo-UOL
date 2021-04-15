@@ -67,7 +67,74 @@ function tratarErro(resposta){
     console.log(resposta.response.status)
 }
 
+function mandarMensagem(){
+    let dados = {
+        from: document.querySelector(".telaEntrada input").value,
+        to: destinatario,
+        text: document.querySelector(".fundo input").value,
+        type: tipoMensagem
+    }
+    const promessa = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/messages", dados)
+    console.log(dados)
+    promessa.then(requisitarConversas)
+    promessa.catch()
+}
 
+function buscarParticipantes(){
+    const promessa = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/participants")
+    promessa.then(popularSiderbar)
+    
+}
+
+function popularSiderbar(respota){
+    const resposta = respota.data
+    console.log(resposta)
+    const sidebar = document.querySelector(".escolha-contato")
+    sidebar.innerHTML = `
+    <div class="contato-sidebar" >
+        <ion-icon name="people"></ion-icon>
+        <div class="contato-indiv" onclick="selecionarContato(this)">
+            <span>Todos</span>
+            <ion-icon name="checkmark-sharp" class="escondido"></ion-icon>
+        </div>
+    </div>`
+    Object.entries(resposta).forEach(([key]) => {
+        sidebar.innerHTML +=
+        `<div class="contato-sidebar" >
+        <ion-icon name="people"></ion-icon>
+        <div class="contato-indiv" onclick="selecionarContato(this)">
+            <span>${resposta[key].name}</span>
+            <ion-icon name="checkmark-sharp" class="escondido"></ion-icon>
+        </div>
+        </div>`
+    });    
+}
+
+function abrirMenu(){
+    siderBar.classList.remove("escondido")
+    cortina.classList.remove("escondido")
+}
+
+function selecionarContato(el){
+    const classe= el.className
+    if(classe === "contato-indiv"){
+        destinatario = el.firstElementChild.innerHTML
+    } else if(el.firstElementChild.innerHTML === "Público"){
+        tipoMensagem = "message"
+    } else{
+        tipoMensagem = "private_message"
+    }
+    let contatoSelecionado = document.querySelectorAll(`.${classe} > ion-icon`)
+    contatoSelecionado.forEach(element => {
+    element.classList.add("escondido")
+    });
+    el.lastElementChild.classList.remove("escondido")
+}
+
+function telaInicial(){
+    siderBar.classList.add("escondido")
+    cortina.classList.add("escondido")
+}
 
 
 
