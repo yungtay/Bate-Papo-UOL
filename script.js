@@ -1,5 +1,6 @@
 const siderBar = document.querySelector(".sidebar");
 const cortina = document.querySelector(".cortina");
+let penultimaMensagem = "";
 let destinatario;
 let tipoMensagem;
 let presenca;
@@ -7,7 +8,6 @@ let presenca;
 function mandaNome(url = "https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/participants" ){
     const nome = document.querySelector(".telaEntrada input").value;
     const promessa = axios.post(url, {name:nome});
-    console.log("Mandei");
     return promessa;
 }
 
@@ -41,7 +41,7 @@ function requisitarConversas(){
 function popularMensagens(reposta){
     const mensagens = document.querySelector(".conteudo")
     const resposta = reposta.data
-    console.log(resposta)
+    typeof(resposta)
     mensagens.innerHTML = ""
     Object.entries(resposta).forEach(([key]) => {
         if(resposta[key].type === "status"){
@@ -54,11 +54,23 @@ function popularMensagens(reposta){
             </div>`
         }
     });
+    mensagemFinal()
+
+}
+
+function mensagemFinal(){
+    const ultimaMensagem = document.querySelector('.caixa-texto:last-child');
+    ultimaMensagem.scrollIntoView()
 }
 
 function tratarErro(resposta){
     console.log(resposta.response.status)
 }
+
+
+
+
+
 
 
 
