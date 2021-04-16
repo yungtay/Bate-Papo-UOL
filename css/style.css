@@ -153,12 +153,11 @@ textarea::-webkit-input-placeholder {
 }
 
 textarea::-webkit-input-placeholder::after { 
-    color: black;
-    font-size: 12px;
-    font-weight: 400;
-    font-style: italic;
-    font-family: "roboto"
-
+    display:block;
+    content:"Please note that we do not work...";
+    font-style:italic;
+    font-size: .6em;
+    margin-top: 20px;
 }
 
 .sidebar{
@@ -207,14 +206,15 @@ textarea::-webkit-input-placeholder::after {
     padding: 0 20%;
 }
 
-.escolha-contato, .escolha-visibilidade{
+.escolha-contato{
     padding: 0 18px;
-    height: 400px;
+    height: 40%;
     overflow: scroll;
 }
 
 .escolha-visibilidade{
-    height:80px;
+    padding: 0 18px;
+    height:10%;
 }
 
 .contato-sidebar, .visibilidade-sidebar{
