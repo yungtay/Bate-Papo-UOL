@@ -26,7 +26,7 @@
         <div class="conteudo">
         </div>
         <div class="fundo">
-            <input type="text" placeholder="Escreva aqui...">
+            <textarea placeholder="Escreva aqui..."></textarea>
             <ion-icon name="paper-plane-outline" onclick="mandarMensagem()"></ion-icon>
         </div>
     </div>
@@ -42,14 +42,14 @@
         <div class="escolha-visibilidade">
             <div class="visibilidade-sidebar">
                 <ion-icon name="lock-open"></ion-icon>
-                <div class="visibilidade-indiv" onclick="selecionarContato(this)">
+                <div class="visibilidade-indiv" onclick="selecionarVisibilidade(this)">
                     <span>Público</span>
-                    <ion-icon name="checkmark-sharp" class="escondido"></ion-icon>
+                    <ion-icon name="checkmark-sharp"></ion-icon>
                 </div>
             </div>
             <div class="visibilidade-sidebar">
                 <ion-icon name="lock-closed"></ion-icon>
-                <div class="visibilidade-indiv" onclick="selecionarContato(this)">
+                <div class="visibilidade-indiv" onclick="selecionarVisibilidade(this)">
                     <span>Reservado</span>
                     <ion-icon name="checkmark-sharp" class="escondido"></ion-icon>    
             </div>

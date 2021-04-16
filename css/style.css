@@ -71,6 +71,7 @@ body{
 
 .conteudo{
     margin: 106px 0 84px 0;
+    height: calc(100% - 106px - 84px);
 }
 
 .caixa-texto{
@@ -82,6 +83,7 @@ body{
     flex-wrap: wrap;
     padding: 10px 9px;
     line-height: 22px;
+    word-break: break-word;
     
 }
 
@@ -129,13 +131,34 @@ span{
     border: 0px none;
 }
 
-input:focus, textarea:focus, select:focus{
-    outline: none;
+textarea{
+    width:80%;
+    height: 60px;
+    border: 0px none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 18px;
+    font-family: "roboto"
+
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+textarea::-webkit-input-placeholder { 
     color: black;
-    opacity: 1; /* Firefox */
+    font-size: 18px;
+    font-weight: 400;
+    font-style: italic;
+    font-family: "roboto"
+
+}
+
+textarea::-webkit-input-placeholder::after { 
+    color: black;
+    font-size: 12px;
+    font-weight: 400;
+    font-style: italic;
+    font-family: "roboto"
+
 }
 
 .sidebar{
@@ -144,7 +167,7 @@ input:focus, textarea:focus, select:focus{
     position: fixed;
     top: 0;
     right: 0;
-    z-index: 9;
+    z-index: 11;
     background: white;
     font-size: 16px;
 }
@@ -186,6 +209,12 @@ input:focus, textarea:focus, select:focus{
 
 .escolha-contato, .escolha-visibilidade{
     padding: 0 18px;
+    height: 400px;
+    overflow: scroll;
+}
+
+.escolha-visibilidade{
+    height:80px;
 }
 
 .contato-sidebar, .visibilidade-sidebar{
@@ -204,6 +233,7 @@ input:focus, textarea:focus, select:focus{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    overflow: hidden;
 }
 
 .escondido{
@@ -212,4 +242,10 @@ input:focus, textarea:focus, select:focus{
 
 .selecionado{
     display: initial;
+}
+
+.texto-reservado-para{
+    font-size: 14px;
+    font-weight: 300;
+    color:#505050;
 }
