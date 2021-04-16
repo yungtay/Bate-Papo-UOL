@@ -152,14 +152,6 @@ textarea::-webkit-input-placeholder {
 
 }
 
-textarea::-webkit-input-placeholder::after { 
-    display:block;
-    content:"Please note that we do not work...";
-    font-style:italic;
-    font-size: .6em;
-    margin-top: 20px;
-}
-
 .sidebar{
     width: 70%;
     height: 100%;
